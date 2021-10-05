@@ -1,5 +1,5 @@
-# Pipeline Designer
-This is a simple react project create with create-react-project. It provides an area where 'Nodes' or 'items' (which are hard-coded & already added) can be moved around. Nodes can be connected to each other as well with the use of drag-and-drop - this uses a very basic collision detection system to check if two nodes are overlapping. However, this collision detection is limited in power and requires the current object & target object provided as parameters.
+# Nodes Drag and Drop Playground
+This is a simple react project created with `create-react-project`. It provides an area where 'Nodes' or 'items' (which are hard-coded & already added in the workspace) can be moved around. Nodes can be connected to each other as well with the use of drag-and-drop - this uses a very basic collision detection system to check if two nodes are overlapping. However, this collision detection is limited in power and requires the current object & target object provided as parameters.
 
 ## Overview / Demo
 Find a [quick video demo here](https://www.loom.com/share/cdae8ffdbe95415eb5cfdc11fd521790)
@@ -14,16 +14,15 @@ Other than the `components` file, there is also a `types` folder which exposes t
 * Run `npm run build` to build production ready bundle of the app
 
 ## Limitations
-* The pipeline design area has hardcoded amount of nodes. New nodes cannot be added
+* The workspace has hardcoded amount of nodes. New nodes cannot be added
 * The methods which check for connection of nodes receive hard-coded values (which means to scale this for x number of nodes, they will have to be refactored to check a current node for connection against all possible nodes)
 * The connector between nodes does not automatically update its position if the nodes change their position (it needs to be clicked to update it)
 
 ## Package & Deployment
 A Dockerfile has been created and added to the repo. This can be used to create a docker image.
 
-* Navigate to the `pipeline-designer` folder if you haven't already (`cd pipeline-designer`)
-* Run `docker build -t pipeline-designer .`. This would create the image
-* Run `docker run -d -p 3000:3000 pipeline-designer` to run the image in a container
+* In the root folder (`/`), run `docker build -t nodes-playground .`. This would create the image
+* Run `docker run -d -p 3000:3000 nodes-playground` to run the image in a container
 
 Once this image has been created - this means that the application has been packaged. So, this image can then be shared / pushed to a shared repository.
 
